@@ -1,0 +1,47 @@
+/* Günlük Otopark Otomasyonu */
+Günlük 10 araç kapasiteli Park Otomasyonu.
+Araçlarýn 4 özelliði vardýr ve bunlar; Plaka, Giriþ saati, çýkýþ saati ve araç tipi(1,2,3)dir.
+
+Giriþ Fiyatý 5 TL'dir.
+1 tipi araçlardan giriþ birim ücretine ek olarak saatlik 1 TL, 2 tipi araçlardan saatlik 2 TL ve saatlik 3 TL araçlardan 3 birim ücret alýnýr.
+
+/* ÝPUÇLARI:Haftalýk, Aylýk ya da Daha Büyük Zamanlar için Otopark OTOMASYONU */
+Ýlk olarak:
+  Ana Dizilerimize boyut ekleyin.(Car[][],Park[][],Payment[][])
+	Örneðin:(aylýk)
+	car[][]	-> car[30][AraçSayýsý][AracOzellikleri]; // 1 ay da 30 gün bulunduðu için günleri tutan bir boyut ekledik.
+		ya da
+	car[][] -> car[30*(GünlükAraçSayýsý)][AracOzellikleri];
+	aynýsýný Payment dizisi içinde yapabiliriz.
+
+	park[][] -> park[30][24][10]; // Günler için 30.
+				      // Saatler için 24.
+				      // Park Alaný için 10.
+
+Bu deðiþiklikleri yaptýktan sonra algoritmamýzý birazcýk geliþtirmemiz gerekecek addCar, deleteCar, ListCars ve Payments fonksiyonlarýnýn mantýðý ayný kalacak 
+fakat daha büyük veriler için tekrar düzenlenecek.
+Bu fonksiyonlarda: dizilere boyutlar, günler için bi kaç döngü, çýkýþ saati için fazladan bir kaç if sorgusu çünkü çýkýþ saati artýk 24'ten büyük olabilir ve bu fonksiyonlar arasýndaki tüm baðlantýlarý gözden geçirmeliyiz kodda.
+	Örneðin:
+	Satýr 532:
+ 		Car dizisini çaðýrýyoruz
+		Eðer bu diziye günler için bir boyut eklediysek aþaðýdaki gibi bir döngü yazmamýz gerekir.
+	      for(d = 0;d < 30 ; d++) // Eðer haftalýksa 7'ye kadar dönmeli.
+		{
+		 for(i=0;i<row;i++)
+   		 {
+        		for(j=0;j<column;j++)
+        		{
+            			if(arr[d][i][j]!=0 && j!=2)
+            		{
+            	    printf("%d\t\t",car[d][i][j]);
+            	 }
+		}	
+
+
+/* Ýpuclarý: DAHA BÜYÜK PARK ALANI VE YA AZ/ÇOK ARAÇ ÖZELLÝÐÝ */
+Sadece bazý deðiþkenlerin deðerlerini deðiþtirmeniz yeterlidir.
+	Örneðin:
+	countCar = 24 * ParkAlaný;// Park Alanýný 24 ile çarpmamýzýn sebebi en kötü senaryoyu hesaplamamýzdýr.Bizim için en kötü olan senaryo aslýnda otopark sahibi için en iyi senaryodur :D
+	carProperties = 3; // Plaka,Giriþ,Çýkýþ eðer böyle bir özellik miktarý varsa tüm koddan araç tipinin etkisi sýfýrlanmalýdýr/çýkarýlmalýdýr.
+	Aylýk Örnek:
+	countCar = 30 * 24 * ParkAlaný;
