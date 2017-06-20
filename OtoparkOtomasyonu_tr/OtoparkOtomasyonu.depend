@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1482926077 source:d:\jengo\projects\c\otoparkotomasyonu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+
+1497978700 source:c:\users\user\desktop\otoparkotomasyonu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+
