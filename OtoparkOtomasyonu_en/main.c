@@ -51,21 +51,21 @@ int main()
 
     /* Menu Process */
     do{
-    int menuChoise=0;
+    int menuChoice=0;
     printf("INSERT / DELETE Car\t\t\t-1 \nList Cars\t\t\t\t-2 \nPayment Queries\t\t\t\t-3 \nMaximum & Minimum Payment Information\t-4 : ");
-    scanf("%d",&menuChoise);
+    scanf("%d",&menuChoice);
     printf("\n");
     printf("--------------------------------------------------------\n");
-    switch(menuChoise)
+    switch(menuChoice)
     {
         /* Carr Add/Delete Processes */
         case 1:
                 countTry=0;
                 do{
-                    int processChoise=0;
-                    printf("Insert\t\t-1\nDelete\t\t-2 : "); scanf("%d",&processChoise);
+                    int processChoice=0;
+                    printf("Insert\t\t-1\nDelete\t\t-2 : "); scanf("%d",&processChoice);
                     printf("\n");
-                    if(processChoise == 1)
+                    if(processChoice == 1)
                     {
                         lastCarPos = addCar(countCar,carProperty,car,payment,lastCarPos);
                         /*
@@ -75,7 +75,7 @@ int main()
                         */
                         countTry = 3;
                     }
-                    else if(processChoise == 2)
+                    else if(processChoice == 2)
                     {
                        countTry=0;
                         do{
@@ -125,10 +125,10 @@ int main()
         case 2:
             countTry=0;
                 do{
-                    int processChoise=0;
-                    printf("Registered Cars\t\t\t-1 \nParking Lot Information\t\t-2 : "); scanf("%d",&processChoise);
+                    int processChoice=0;
+                    printf("Registered Cars\t\t\t-1 \nParking Lot Information\t\t-2 : "); scanf("%d",&processChoice);
                     printf("\n");
-                    if(processChoise == 1)
+                    if(processChoice == 1)
                     {
                         if(lastCarPos == 0)
                         {
@@ -138,7 +138,7 @@ int main()
                         listCars(lastCarPos,carProperty,car);
                         countTry = 3;
                     }
-                    else if(processChoise == 2)
+                    else if(processChoice == 2)
                     {
                         countTry=0;
                         int inHour,exitHour; // Variable for Check-In/Out Time
@@ -216,9 +216,9 @@ int main()
         case 4:
             countTry=0;
             do{
-                int processChoise=0,max = 0,min = 0;
-                printf("Maximum Payment\t\t-1  \nMinimum Payment\t\t-2 : "); scanf("%d",&processChoise);
-                if(processChoise == 1)
+                int processChoice=0,max = 0,min = 0;
+                printf("Maximum Payment\t\t-1  \nMinimum Payment\t\t-2 : "); scanf("%d",&processChoice);
+                if(processChoice == 1)
                     {
                         max = maxPayment(lastCarPos,carProperty,payment,lastCarPos);
                         /*
@@ -233,7 +233,7 @@ int main()
                         }
                         countTry = 3;
                     }
-                    else if(processChoise == 2)
+                    else if(processChoice == 2)
                     {
                         min = minPayment(lastCarPos,carProperty,payment,lastCarPos);
                         /*
@@ -453,7 +453,7 @@ int addCar(int countCar,int carProperty,int car[countCar][carProperty],int payme
 /* Insert into Lot Function */
 int addToPark(int inHour,int exitHour,int carPlate){
     /*
-        Parameters perspectively in hour, exit time, plate.
+        Parameters respectively in hour, exit time, plate.
         It adds the car plate for every hour between in/exit time to someplace empty.
     */
     int i,j,indexPlate,capacity=0;
@@ -554,7 +554,7 @@ void listCars(int row,int column,int car[row][column])
 void listPark(inHour,exitHour)
 {
      /*
-      Parameters perspectively, in,exit hours.
+      Parameters respectively, in,exit hours.
       This functions lists the cars between those two hours in Parking Lot.
     */
     int i,j;
